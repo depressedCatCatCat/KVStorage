@@ -35,6 +35,12 @@ def main():
             result = storage.values()
         elif command[0] == "items":
             result = storage.items()
+        elif command[0] == "clone":
+            new_name = storage.name + "(clone)"
+            new_storage = disk.Disk(new_name)
+            new_storage.data = storage.data
+            new_storage.save()
+            result = f"{new_name} KV-Storage was created"
         else:
             break
         print(result)
